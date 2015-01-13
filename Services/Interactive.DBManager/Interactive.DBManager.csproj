@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5905BEF6-B9C0-4B4A-BBE4-EB1D25BF8740}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Interactive.DBManager</RootNamespace>
+    <AssemblyName>Interactive.DBManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBUtility\SqlHelper.cs" />
+    <Compile Include="Entity\CompanyEntity.cs" />
+    <Compile Include="Entity\IncidentEntity.cs" />
+    <Compile Include="Entity\LoginEntity.cs" />
+    <Compile Include="Entity\TokenEntity.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Entity\UserIncidentMapEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CompanyRepository.cs" />
+    <Compile Include="Repository\IncidentRepository.cs" />
+    <Compile Include="Repository\TokensRepository.cs" />
+    <Compile Include="Repository\UserIncidentMapRepository.cs" />
+    <Compile Include="Repository\UsersRepository.cs" />
+    <Compile Include="Service\CompanyRepService.cs" />
+    <Compile Include="Service\IncidentRepService.cs" />
+    <Compile Include="Service\TokensRepService.cs" />
+    <Compile Include="Service\UserIncidentMapRepService.cs" />
+    <Compile Include="Service\UsersRepService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Interactive.Common\Interactive.Common.csproj">
+      <Project>{0da39cf4-0d9e-426a-9bac-175bab229649}</Project>
+      <Name>Interactive.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interactive.Constant\Interactive.Constant.csproj">
+      <Project>{0888b983-5d4b-4a51-8352-2319fbd5119e}</Project>
+      <Name>Interactive.Constant</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

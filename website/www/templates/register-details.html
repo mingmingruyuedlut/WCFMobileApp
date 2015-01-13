@@ -1,0 +1,31 @@
+<ion-view title="" id="register-details">
+  <ion-content class="has-header">
+    <div class="jumbotron">
+      <div class="app-title padding">Service View</div>
+    </div>
+    <h2 class="has-notes padding-left">Register Your Details</h2>
+    <p class="notes padding-left padding-right">
+      The details you provided could not be matched to our recrods.  Please complete and submit the form below to verify your identity.
+    </p>
+    <form novalidate name="data.registrationForm" ng-submit="doSubmit()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="email" placeholder="Email" name="mail" ng-model="data.user.email" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Name" name="name" ng-model="data.user.name" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Customer" name="customer" ng-model="data.user.customer" required>
+        </label>
+        <label class="item item-input">
+          <input type="tel" placeholder="Contact number" name="phone" ng-model="data.user.phone" required>
+        </label>
+      </div>
+      <div class="button-group padding text-center">
+        <button type="submit" class="btn btn_full_width">Submit<i class="icon ion-ios-arrow-forward"></i></button>
+        <button class="btn btn_full_width" ng-click="goBack()">Cancel</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

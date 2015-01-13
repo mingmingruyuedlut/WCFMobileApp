@@ -1,0 +1,10 @@
+{
+  "globals": {
+    "angular": false
+  },
+  "camelcase": true,
+  "curly": true,
+  "indent": 2,
+  "quotmark": "single",
+  "unused": true
+}

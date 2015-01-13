@@ -1,0 +1,32 @@
+<ion-view id="log-incident" title="Log Incident">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header">
+    <form name="data.logIncidentForm" ng-submit="doSubmit()" novalidate action="">
+      <h2 class="padding-left">Contact Details</h2>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" ng-model="data.name" name="name" placeholder="Name" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" ng-model="data.contactNumber" name="contactNumber" placeholder="Contact Number" required>
+        </label>
+      </div>
+      <h2 class="padding-left">Severity</h2>
+      <div class="list">
+        <div class="radio-group radio-group-serverity">
+          <ion-radio ng-repeat="severity in data.severityOptions" ng-model="data.severity" 
+              ng-value="severity" name="severity" required>
+            <span class="">{{severity.label}}</span>
+          </ion-radio>
+        </div>
+      </div>
+      <div class="button-group padding text-center">
+        <button type="submit" class="btn btn_full_width">Submit <i class="icon ion-ios-arrow-forward"></i></button>
+        <button class="btn btn_full_width" ng-click="doCancel()" type="button">Cancel</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

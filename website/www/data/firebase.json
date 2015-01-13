@@ -1,0 +1,39 @@
+{
+  "status": ["New", "Call Back", "Call Open", "Call Allocated", "Contact", "Onsite", "Scheduled", "Validate", "Rectification in Progress", "Resolved", "Closed"],
+  "incidents": {
+    "INT-1403429923163": {
+      "comments": [{
+        "content": "Lorem ipsum dolor sit amet.",
+        "name": "Patrick Zhong",
+        "timestamp": 1403429924163
+      }, {
+        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "name": "Gavin Li",
+        "timestamp": 1403429933163
+      }],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, quo doloribus cupiditate minima tempora quasi.",
+      "incidentId": "INT-1403429923163",
+      "service": 0,
+      "severity": 1,
+      "status": 6,
+      "technician": "gennadyvaisman",
+      "timestamp": 1403429923163
+    }
+  },
+  "services": ["cloud & managed services", "data centre", "business continuity", "hardware maintenance"],
+  "severities": ["P0", "P1", "P2", "P3", "P4"],
+  "technicians": {
+    "gennadyvaisman": {
+      "avatar": "avatar_technician",
+      "name": "Gennady Vaisman",
+      "starLevel": 5,
+      "title": "Senior engineer"
+    },
+    "patrick": {
+      "avatar": "avatar_technician",
+      "name": "Patrick Zhong",
+      "starLevel": 4,
+      "title": "Software engineer"
+    }
+  }
+}

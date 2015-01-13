@@ -1,0 +1,26 @@
+<ion-view title="" id="login">
+  <ion-content class="has-header">
+    <div class="jumbotron">
+      <div class="app-title padding">Service View</div>
+    </div>
+    <h2 class="padding-left">Log in to my account</h2>
+    <form novalidate name="data.loginForm" ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="email" ng-model="data.email" name="email" placeholder="Username" required></label>
+        <label class="item item-input">
+          <input type="password" ng-model="data.password" name="password" placeholder="Password" required>
+          <a class="forgot-password" href="#/app/forgot-password">Forgotten password?</a>
+        </label>
+      </div>
+      <div class="button-group padding text-center">
+        <button type="submit" class="btn btn_full_width btn_fwd">
+          Login <i class="icon ion-ios-arrow-forward"></i>
+        </button>
+        <button type="button" class="btn btn_full_width" ng-click="doRegister()">
+          Register <i class="icon ion-ios-arrow-forward"></i>
+        </button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

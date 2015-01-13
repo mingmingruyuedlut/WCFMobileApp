@@ -1,0 +1,14 @@
+<p>
+  Please select one or more contacts from your organisation would like to share this incident with.
+</p>
+<ul class="list">
+  <li class="item item-toggle" ng-repeat="coworker in data.coworkers">
+     <i class="icon ion-person"></i>{{coworker.Email | emailName}}
+     <label class="toggle toggle-balanced">
+       <input type="checkbox" ng-model="coworker.IsShared">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+</ul>

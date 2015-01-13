@@ -1,0 +1,49 @@
+// Interactive Font Path
+// --------------------------
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700,400);
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('#{$interactiveicons-font-path}/icomoon.eot?-z3mypy');
+    src:url('#{$interactiveicons-font-path}/icomoon.eot?#iefix-z3mypy') format('embedded-opentype'),
+        url('#{$interactiveicons-font-path}/icomoon.woff?-z3mypy') format('woff'),
+        url('#{$interactiveicons-font-path}/icomoon.ttf?-z3mypy') format('truetype'),
+        url('#{$interactiveicons-font-path}/icomoon.svg?-z3mypy#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-business_continuity:before {
+    content: "\e600";
+}
+.icon-cloud_managed_service:before {
+    content: "\e601";
+}
+.icon-data_centre:before {
+    content: "\e602";
+}
+.icon-hardware_maintenance:before {
+    content: "\e603";
+}
+.icon-e:before {
+    content: "\e604";
+}
+.icon-f:before {
+    content: "\e605";
+}

@@ -1,0 +1,20 @@
+<ion-view title="Log Incident">
+  <ion-content class="has-header" id="log-incident-result">
+    <div class="card">
+      <div class="item item-text-wrap text-center">
+          <h2><i class="icon ion-android-checkmark-circle"></i>Incident logged</h2>
+          <span class="icon {{incident.Service | filterByService: 'icon'}}"></span>
+          <label>Incident #:</label>
+          <span class="data">{{incident.IdInFP}}</span>
+          <div class="clearfix"></div>
+          <label>Severity:</label>
+          <span class="data">{{incident.Severity.Label}}</span>
+          <hr/>
+          <p class="notes padding-top">*Our technician will contact you shortly</p>
+      </div>
+    </div>
+    <div class="button-group padding-horizontal">
+      <a href="#/app/view" class="btn btn_full_width" >Done</a>
+    </div>
+  </ion-content>
+</ion-view>

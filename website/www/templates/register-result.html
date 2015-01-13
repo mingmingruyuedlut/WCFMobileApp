@@ -1,0 +1,29 @@
+<ion-view title="">
+  <ion-content class="has-header result-msg">
+      <h2 class="has-notes padding-left" ng-show="data.fromRegisterCheck || data.fromRegisterDetails">Verification</h2>
+
+      <!-- From registration check page -->
+      <p ng-show="data.fromRegisterCheck" class="padding-left padding-right">
+        You will receive an email shortly outlining steps to complete your registration.  If you do not receive this email please contact the Interactive 24hr Service Desk on 1300 669 670.
+      </p>
+
+      <!-- From registration details page -->
+      <p ng-show="data.fromRegisterDetails" class="padding-left padding-right">
+        Your details have been successfully submitted. You will be contacted within the next 24 hours by our service representative for account authentication and confirmation.
+      </p>
+      <p ng-show="data.fromRegisterDetails" class="padding-left padding-right">
+        If you are not contacted within 24 hours, please contact 1300 669 670.
+      </p>
+
+      <!-- From registration details page -->
+      <h2 ng-show="data.fromSetPassword" class="has-notes padding-left">Registration Complete</h2>
+      <p ng-show="data.fromSetPassword" class="padding-left padding-right">Your password has now been set and registration complete.</p>
+      <p ng-show="data.fromSetPassword" class="padding-left padding-right">You can now log in using the button below.</p>
+      <div class="button-group padding text-center">
+        <button type="submit" class="btn btn_full_width" ng-click="goBack()">
+          {{data.buttonText}} <i class="icon ion-ios-arrow-forward"></i>
+        </button>
+      </div>
+
+  </ion-content>
+</ion-view>

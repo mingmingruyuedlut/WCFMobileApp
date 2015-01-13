@@ -1,0 +1,51 @@
+<ion-view id="incidents" title="{{data.title}}<span>{{incidents.length || ''}}</span>">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right" ng-if="!data.isViewHistory">
+    <button menu-toggle="right" class="button button-icon icon ion-android-add" ng-click="logIncident()"></button>
+  </ion-nav-buttons>
+  
+  <ion-content class="has-header" delegate-handle="incidentsList">
+    <div ng-if="incidents.length == 0">
+      <p class="notice padding text-center">{{data.noIncidentMsg}}</p>
+      <div class="button-group padding text-center">
+        <button class="btn btn_full_width" ng-click="logIncident()">
+          <i class="icon ion-android-add"></i> Log Incident
+        </button>
+      </div>
+    </div>
+    <div class="list card" on-tap="gotoIncident(incident)" ng-repeat="incident in incidents">
+
+      <div class="item"> <i class="icon ion-ios-people"><span>{{incident.ShareCount || 0}}</span></i> 
+      <i class="icon ion-ios-arrow-right"></i> 
+        <span class="status">{{incident.Status}}</span>
+        <div class="row item-highlight">
+          <div class="severity">
+            <span>{{incident.Severity.Value}}</span>
+          </div>
+          <div class="col padding-left">
+            <ul class="facts">
+              <li>
+                <span>
+                  Device: <b>{{incident.Device}}</b>
+                </span>
+              </li>
+              <li>
+                <span>
+                  Serial #: <b>{{incident.SerialNumber}}</b>
+                </span>
+              </li>
+              <li>
+                <span>
+                  Incident #:
+                  <b>{{incident.IdInFP}}</b>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

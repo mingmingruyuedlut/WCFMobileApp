@@ -1,0 +1,36 @@
+<ion-side-menus>
+  <ion-pane ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7">
+      <interactive-nav-back-button class="button-clear" animation="slide-right-left"> <i class="icon ion-ios-arrow-back"></i>
+      </interactive-nav-back-button>
+      <a ng-hide="data.AppGlobalStates.hideLogo" class="logo" href="#">
+        <img src="img/logo.png" alt=""></a>
+    </ion-nav-bar>
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+  </ion-pane>
+  <ion-side-menu side="left">
+    <header class="bar bar-header bar-stable" menu-close>
+      <h1 class="title"> <i class="icon ion-ios7-close-empty"></i>
+        Service View
+      </h1>
+    </header>
+    <ion-content class="has-header" menu-close>
+      <ion-list>
+        <ion-item nav-clear menu-close href="#/app/view" ng-class="{ 'active': data.$state.current.name == 'app.incidents' }">
+          Current Incidents <span>{{data.AppGlobalStates.incidentsCount ? '(' + data.AppGlobalStates.incidentsCount + ')' : ''}}</span>
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/history" ng-class="{ 'active': data.$state.current.name == 'app.history' }">
+          View History <span>{{data.AppGlobalStates.historyIncidentsCount ? '(' + data.AppGlobalStates.historyIncidentsCount + ')' : ''}}</span>
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/log" ng-class="{ 'active': data.$state.current.name == 'app.logIncident' }">
+          Log Incident
+        </ion-item>
+      </ion-list>
+      <div class="button-group padding text-center">
+        <button type="submit" class="btn btn_full_width" menu-close ng-click="logout()">
+          Log out <i class="icon ion-ios-arrow-forward"></i>
+        </button>
+      </div>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,111 @@
+<ion-view id="incident" title="Incident Details">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-share" ng-show="!data.isHistory && incident.IsOwner" ng-click="showSharePopup()"></button>
+  </ion-nav-buttons>
+  <ion-header-bar class="bar bar-subheader">
+    <div class="breadcumb padding">
+      <span class="pager">{{data.currentIndex || 0}}/{{incidents.length || 0}}</span>
+      <div class="clearfix"></div>
+    </div>
+  </ion-header-bar>
+  <ion-content class="has-header has-subheader">
+    <ion-slide-box show-pager="false" on-slide-changed='onSlideChange(index)'>
+      <ion-slide ng-repeat='incident in incidents'>
+        <!--Template :: New -->
+        <div class="list card">
+          <div class="item">
+            <i class="icon ion-ios-people" ng-click="getSharedUsers()"><span>{{incident.ShareCount || 0}}</span></i> 
+            <span class="status">{{incident.Status}}</span>
+            <div class="row item-highlight">
+              <div class="severity">
+                <span>{{incident.Severity.Value}}</span>
+              </div>
+              <div class="col padding-left">
+                <ul class="facts">
+                  <li>
+                    <span>
+                      Device: <b>{{incident.Device}}</b>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      Serial #: <b>{{incident.SerialNumber}}</b>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      Incident #:
+                      <b>{{incident.IdInFP}}</b>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col captions padding-left padding-right">
+              <p>{{incident.MrTitle}}</p>
+              <span class="time">
+                <interactive-timeago timestamp='{{incident.TimeStamp}}'></interactive-timeago>
+                - {{ incident.TimeStamp | date :'medium'}}
+              </span>
+            </div>
+          </div>
+
+          <div class="row sla" ng-if="incident.ContactedSLA || incident.OnsiteSLA">
+            <div class="col" ng-class="{ passed: incident.ContactedSLA == 'Passed', failed: incident.ContactedSLA == 'Failed'}">
+              <span><i class="icon ion-ios-checkmark"></i><i class="icon ion-ios-close"></i>Response SLA</span>
+            </div>
+            <div class="col" ng-class="{ passed: incident.OnsiteSLA == 'Passed', failed: incident.OnsiteSLA == 'Failed'}">
+              <span><i class="icon ion-ios-checkmark"></i><i class="icon ion-ios-close"></i>Onsite SLA</span>
+            </div>
+          </div>
+          
+          <div class="location">
+            <h4><i class="icon ion-location"></i>Location</h4>
+            <div class="row">
+                <div class="col">
+                  <p>{{incident.DeviceLocation}}</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="status-log">
+            <h4><i class="icon ion-ios-flag"></i>Status</h4>
+            <div class="row">
+                <div class="col">
+                  <span class="label" ng-class="{ active: incident.StatusHistory.Open.IsActive }">Open <span class="time">{{incident.StatusHistory.Open.TimeStamp ? (incident.StatusHistory.Open.TimeStamp | date: 'dd MMM yyyy') : '-'}}</span></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                  <span class="label" ng-class="{ active: incident.StatusHistory.Contacted.IsActive }">Contacted <span class="time">{{incident.StatusHistory.Contacted.TimeStamp ? (incident.StatusHistory.Contacted.TimeStamp | date: 'dd MMM yyyy') : '-'}}</span></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                  <span class="label" ng-class="{ active: incident.StatusHistory.Onsite.IsActive }">Onsite <span class="time">{{incident.StatusHistory.Onsite.TimeStamp ? (incident.StatusHistory.Onsite.TimeStamp | date: 'dd MMM yyyy') : '-'}}</span></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                  <span class="label" ng-class="{ active: incident.StatusHistory.Resolved.IsActive }">Resolved <span class="time">{{incident.StatusHistory.Resolved.TimeStamp ? (incident.StatusHistory.Resolved.TimeStamp | date: 'dd MMM yyyy') : '-'}}</span></span>
+                </div>
+            </div>
+          </div>
+
+          <div class="resolution" ng-if="incident.Status == 'Resolved'">
+            <h4> <i class="icon ion-bookmark"></i>Resolution</h4>
+            <div class="row">
+              <div class="col">
+                <h5>{{incident.ClosureCode}}</h5>
+                <p>{{incident.Resolution}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Template :: END-->
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

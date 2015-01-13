@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64118D68-E146-4384-BC3D-1119B5E1A618}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 12.0\Blend\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="WCFService\LoginWCFService.svc" />
+    <Content Include="Log\Error\errorlog.txt" />
+    <Content Include="Log\logfile.txt" />
+    <Content Include="WCFService\OperateIncidentWCFService.svc" />
+    <Content Include="WCFService\RegistrationWCFService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contract\DataContract\Company.cs" />
+    <Compile Include="Contract\DataContract\Customer.cs" />
+    <Compile Include="Contract\DataContract\Incident.cs" />
+    <Compile Include="Contract\DataContract\Token.cs" />
+    <Compile Include="Contract\DataContract\User.cs" />
+    <Compile Include="Contract\DataContract\UserIncidentMap.cs" />
+    <Compile Include="Contract\DataContract\WCFResponse.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\WCFServiceContract\ILoginWCFService.cs" />
+    <Compile Include="Contract\WCFServiceContract\IOperateIncidentWCFService.cs" />
+    <Compile Include="Contract\WCFServiceContract\IRegistrationWCFService.cs" />
+    <Compile Include="Service\CommonService.cs" />
+    <Compile Include="WCFService\LoginWCFService.svc.cs">
+      <DependentUpon>LoginWCFService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FootprintsTestManager.cs" />
+    <Compile Include="Manager\FootprintsV11Manager.cs" />
+    <Compile Include="Contract\DataContract\Severity.cs" />
+    <Compile Include="Contract\DataContract\Technician.cs" />
+    <Compile Include="WCFService\OperateIncidentWCFService.svc.cs">
+      <DependentUpon>OperateIncidentWCFService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WCFService\RegistrationWCFService.svc.cs">
+      <DependentUpon>RegistrationWCFService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\LoginService.cs" />
+    <Compile Include="Service\OperateIncidentService.cs" />
+    <Compile Include="Service\RegistrationService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Interactive.Common\Interactive.Common.csproj">
+      <Project>{0da39cf4-0d9e-426a-9bac-175bab229649}</Project>
+      <Name>Interactive.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interactive.Constant\Interactive.Constant.csproj">
+      <Project>{0888b983-5d4b-4a51-8352-2319fbd5119e}</Project>
+      <Name>Interactive.Constant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interactive.DBManager\Interactive.DBManager.csproj">
+      <Project>{5905bef6-b9c0-4b4a-bbe4-eb1d25bf8740}</Project>
+      <Name>Interactive.DBManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interactive.Footprints.Stub\Interactive.Footprints.Stub.csproj">
+      <Project>{60527150-a4cf-4173-89d5-5c07cd3fed46}</Project>
+      <Name>Interactive.Footprints.Stub</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interactive.Footprints\Interactive.Footprints.csproj">
+      <Project>{34e9d5ad-1069-4277-87e1-84275c48f64e}</Project>
+      <Name>Interactive.Footprints</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54894</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54894/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

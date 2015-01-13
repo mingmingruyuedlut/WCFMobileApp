@@ -1,0 +1,24 @@
+<ion-view id="register" title="">
+  <ion-content class="has-header" id="register">
+    <div class="jumbotron">
+      <div class="app-title padding">Service View</div>
+    </div>
+    <h2 class="has-notes padding-left">Customer Registration</h2>
+    <p class="notes padding-left padding-right">Please enter your email:</p>
+    <div class="list">
+      <label class="item item-input">
+        <input type="email" placeholder="e.g. john.smith@interactive.com.au" ng-model="user.email"></label>
+      <p class="notes padding-top padding-left">
+        *Note: If your email is not associated to any account then your will be called to verfiy your identity.
+      </p>
+    </div>
+    <div class="button-group padding text-center">
+      <button type="submit" class="btn btn_full_width" ng-click="doSubmit()">
+        Submit <i class="icon ion-ios-arrow-forward"></i>
+      </button>
+      <button type="submit" class="btn btn_full_width" ng-click="goLogin()">
+        Go to login <i class="icon ion-ios-arrow-forward"></i>
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
